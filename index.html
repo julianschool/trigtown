@@ -54,11 +54,31 @@ var time = t[0] + ":" + t[1] + ":" + t[2] + "." + 1000-t[3];
     pushMatrix();
         translate(width/2, height/2);
         scale(1, -1);
-        fill(255);
+       fill(255);
         stroke(0);
-        strokeWeight(10);
-        ellipse(0, 0, 1.3*r*2, 1.3*r*2);
-        stroke(255, 0, 0);
+        strokeWeight(7);
+        ellipse(0, 0, 1.5*r*2, 1.5*r*2);
+        strokeWeight(2);
+        ellipse(0, 0, 1.4*r*2, 1.4*r*2);
+        strokeWeight(3);
+        ellipse(0, 0, 1.05*r*2, 1.05*r*2);
+        line(0, 1.05*r, 0, -1.05*r);
+        line(-1.05*r, 0, 1.05*r, 0);
+        //Had to do this in degrees because of rounding
+            for(var i = 360; i > 0; i-=6){
+                pushMatrix();
+                    translate(r*1.5*cos(radians(i)), r*1.5*sin(radians(i)));
+                    rotate(PI/2+radians(i));
+                    strokeWeight(1);
+                    line(0, 0, 0, 20);
+                    if(i%30===0){
+                        strokeWeight(10);
+                        line(0, 5, 0, 20);
+                    }
+                    
+                popMatrix();
+            }
+        stroke(0, 0, 0);
         strokeWeight(2);
         line(0, 0, r*cos(a[2]), r*sin(a[2]));
         stroke(0);
@@ -70,82 +90,83 @@ var time = t[0] + ":" + t[1] + ":" + t[2] + "." + 1000-t[3];
         scale(1, -1);
         textFont(createFont("times new roman"), 20);
         fill(0);
-        text(" (" + c[0][0].toFixed(2) + ", " + c[0][1].toFixed(2) + ")", r*4/5*cos(a[0]), -r*4/5*sin(a[0]));
-        text(" (" + c[1][0].toFixed(2) + ", " + c[1][1].toFixed(2) + ")", r*cos(minutes), -r*sin(a[1]));
-        text(" (" + c[2][0].toFixed(2) + ", " + c[2][1].toFixed(2) + ")", r*cos(seconds), -r*sin(a[2]));
+//         text(" (" + c[0][0].toFixed(2) + ", " + c[0][1].toFixed(2) + ")", r*4/5*cos(a[0]), -r*4/5*sin(a[0]));
+//         text(" (" + c[1][0].toFixed(2) + ", " + c[1][1].toFixed(2) + ")", r*cos(minutes), -r*sin(a[1]));
+//         text(" (" + c[2][0].toFixed(2) + ", " + c[2][1].toFixed(2) + ")", r*cos(seconds), -r*sin(a[2]));
         for(var i = 2*PI; i > 0; i-=(PI/6)){
+            var rad = 1.2;
             fill(0);
             textAlign(CENTER, CENTER);
-            textFont(createFont("times new roman"), 55);
+            textFont(createFont("Garamond"), 55);
             if(round((6*i)/PI) === 12){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("XII" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 1){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("I" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 2){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("II" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 3){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("III" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 4){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("IV" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 5){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("V" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 6){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("VI" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 7){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("VII" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 8){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("VIII" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 9){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("IX" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 10){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("X" , 0, 0);
                 popMatrix();
             } else if(round((6*i)/PI) === 11){
                 pushMatrix();
-                translate(r*1.15*cos(i), -r*1.15*sin(i));
+                translate(r*rad*cos(i), -r*rad*sin(i));
                 rotate(PI/2-i);
                 text("IX" , 0, 0);
                 popMatrix();
